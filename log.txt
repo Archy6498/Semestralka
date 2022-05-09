@@ -1,0 +1,31 @@
+2022-05-09T11:35:07.419791+00:00 app[api]: Initial release by user jan.laska@tul.cz
+2022-05-09T11:35:07.419791+00:00 app[api]: Release v1 created by user jan.laska@tul.cz
+2022-05-09T11:35:07.608265+00:00 app[api]: Release v2 created by user jan.laska@tul.cz
+2022-05-09T11:35:07.608265+00:00 app[api]: Enable Logplex by user jan.laska@tul.cz
+2022-05-09T11:36:37.965260+00:00 app[api]: Running release v3 commands by user jan.laska@tul.cz
+2022-05-09T11:36:37.965260+00:00 app[api]: Attach DATABASE (@ref:postgresql-infinite-00036) by user jan.laska@tul.cz
+2022-05-09T11:36:37.985640+00:00 app[api]: Release v4 created by user jan.laska@tul.cz
+2022-05-09T11:36:37.985640+00:00 app[api]: @ref:postgresql-infinite-00036 completed provisioning, setting DATABASE_URL. by user jan.laska@tul.cz
+2022-05-09T11:40:57.000000+00:00 app[api]: Build started by user jan.laska@tul.cz
+2022-05-09T11:40:58.000000+00:00 app[api]: Build failed -- check your build output: https://dashboard.heroku.com/apps/832718bf-65e8-4bd5-b7e2-267aaaa93dbf/activity/builds/ab0d0355-193f-4016-b958-f24f7dc90984
+2022-05-09T11:43:46.000000+00:00 app[api]: Build started by user jan.laska@tul.cz
+2022-05-09T11:43:48.000000+00:00 app[api]: Build failed -- check your build output: https://dashboard.heroku.com/apps/832718bf-65e8-4bd5-b7e2-267aaaa93dbf/activity/builds/1be0b6d6-1874-4448-81bc-68cb46ff37f4
+2022-05-09T11:35:07.419791+00:00 app[api]: Initial release by user jan.laska@tul.cz
+2022-05-09T11:35:07.419791+00:00 app[api]: Release v1 created by user jan.laska@tul.cz
+2022-05-09T11:35:07.608265+00:00 app[api]: Release v2 created by user jan.laska@tul.cz
+2022-05-09T11:35:07.608265+00:00 app[api]: Enable Logplex by user jan.laska@tul.cz
+2022-05-09T11:36:37.965260+00:00 app[api]: Running release v3 commands by user jan.laska@tul.cz
+2022-05-09T11:36:37.965260+00:00 app[api]: Attach DATABASE (@ref:postgresql-infinite-00036) by user jan.laska@tul.cz
+2022-05-09T11:36:37.985640+00:00 app[api]: Release v4 created by user jan.laska@tul.cz
+2022-05-09T11:36:37.985640+00:00 app[api]: @ref:postgresql-infinite-00036 completed provisioning, setting DATABASE_URL. by user jan.laska@tul.cz
+2022-05-09T11:40:57.000000+00:00 app[api]: Build started by user jan.laska@tul.cz
+2022-05-09T11:40:58.000000+00:00 app[api]: Build failed -- check your build output: https://dashboard.heroku.com/apps/832718bf-65e8-4bd5-b7e2-267aaaa93dbf/activity/builds/ab0d0355-193f-4016-b958-f24f7dc90984
+2022-05-09T11:43:46.000000+00:00 app[api]: Build started by user jan.laska@tul.cz
+2022-05-09T11:43:48.000000+00:00 app[api]: Build failed -- check your build output: https://dashboard.heroku.com/apps/832718bf-65e8-4bd5-b7e2-267aaaa93dbf/activity/builds/1be0b6d6-1874-4448-81bc-68cb46ff37f4
+2022-05-09T11:48:04.000000+00:00 app[api]: Build started by user jan.laska@tul.cz
+2022-05-09T11:48:06.000000+00:00 app[api]: Build failed -- check your build output: https://dashboard.heroku.com/apps/832718bf-65e8-4bd5-b7e2-267aaaa93dbf/activity/builds/560cb5d9-c56d-44cf-ae1a-bf4598fdb16d
+						-----> Building on the Heroku-20 stack
+						-----> Using buildpack: heroku/python
+						-----> App not compatible with buildpack: https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/python.tgz
+     						  More info: https://devcenter.heroku.com/articles/buildpacks#detection-failure
+ 						!     Push failed
