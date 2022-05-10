@@ -35,12 +35,14 @@ def token_required(f):
 
         if not token:
             return jsonify({'message' : 'Nenalezen token!'}), 401
-
+        print("Token", token)
         try: 
             data = jwt.decode(token, app.config['SECRET_KEY'])
             current_user = User.query.filter_by(public_id=data['public_id']).first()
-        except:
-            return jsonify({'message' : 'Spatny token!'}), 401
+        except jwt.DecodeError:
+            return jsonify({"message": "auth token is invalid"}), 403
+        except jwt.ExpiredSignatureError:
+            return jsonify({"message": "auth token expired"}), 401
 
         return f(current_user, *args, **kwargs)
 
@@ -138,21 +140,23 @@ def delete_user(current_user, public_id):
 @app.route('/login', methods=["GET"])
 def login():
     auth = request.authorization
+    print ("AUTH", auth)
 
     if not auth or not auth.username or not auth.password:
         return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
     user = User.query.filter_by(name=auth.username).first()
-
+    print("USER", user.password)
+    print("auth", auth.password)
     if not user:
-        return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
+        return make_response('Could not verify - user', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
-    if check_password_hash(user.password, auth.password):
+    if user.password == auth.password:
         token = jwt.encode({'public_id' : user.public_id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+        print("token", token)
+        return jsonify({'token' : token})
 
-        return jsonify({'token' : token.decode('UTF-8')})
-
-    return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
+    return make_response('Could not verify -pass', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
 @app.route('/todo', methods=['GET'])
 @token_required
