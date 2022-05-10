@@ -9,10 +9,9 @@ from functools import wraps
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisissecret'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db' puvodni spojeni s databazi
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zygfwlclaxwilw:aac2b53a6bed644b1751e90d7f5f166087540c3eaac28e211e8886a53759fefd@ec2-54-172-175-251.compute-1.amazonaws.com:5432/d23dl0echp469b'
-db = SQLAlchemy(app)
-
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db' 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bcwxfcqbmotisk:8cf4f0a564264fc4b921bfa5160bd93c4efb0d7b2b232baa3b5d46d34dc4aa04@ec2-54-172-175-251.compute-1.amazonaws.com:5432/da3s606auusc1p'
+db = SQLAlchemy(app)                   
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     public_id = db.Column(db.String(50), unique=True)
@@ -52,7 +51,7 @@ def token_required(f):
 def get_all_users(current_user):
 
     if not current_user.admin:
-        return jsonify({'message' : 'Nemas dostatecne opravneni'})
+            return jsonify({'message' : 'Nemas dostatecne opravneni'})
 
     users = User.query.all()
 
@@ -136,7 +135,7 @@ def delete_user(current_user, public_id):
 
     return jsonify({'message' : 'Uzivatel byl uspesne smazan'})
 
-@app.route('/login')
+@app.route('/login', methods=["GET"])
 def login():
     auth = request.authorization
 
