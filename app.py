@@ -37,7 +37,7 @@ def token_required(f):
 
         if not token:
             return jsonify({'message' : 'Autorizační token nenalezen!'}), 401
-        print("Token", token)
+        
         try: 
             data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
             current_user = User.query.filter_by(public_id=data['public_id']).first()
